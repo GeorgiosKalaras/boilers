@@ -56,5 +56,6 @@ heat_flame_plus = heat + flame			Συνδυαστικό heat, flame
 > https://github.com/tanishqgautam/Transformers
 > https://github.com/davidpupovac/Encoder-Decoder-Models
 > https://huggingface.co/docs/transformers/model_doc/encoder-decoder
+> https://huggingface.co/docs/transformers/v4.40.1/en/model_doc/time_series_transformer
 
 
