@@ -59,3 +59,9 @@ heat_flame_plus = heat + flame			Συνδυαστικό heat, flame
 > https://huggingface.co/docs/transformers/v4.40.1/en/model_doc/time_series_transformer
 
 
+> https://www.tensorflow.org/text/tutorials/transformer
+> https://pylessons.com/transformers-introduction
+> https://machinelearningmastery.com/implementing-the-transformer-encoder-from-scratch-in-tensorflow-and-keras
+
+
+
