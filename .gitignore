@@ -1,2 +1,8 @@
 # csv files
 *.csv
+
+# virtual environment
+boilers_env/
+
+# google drive uploads
+.tmp.driveupload/
