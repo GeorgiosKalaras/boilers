@@ -1,0 +1,56 @@
+μεθοδολογία για υλοποίηση κώδικα εργασίας
+
+-> pre-processing data
+
+-> encoder-decoder transformer
+   (test on one category of one house that it works)
+
+-> genetic algorithm
+   (test using the transformer for one category of one house)
+
+-> create one model for each category (for all houses)
+   (find parameters of best model with genetic algorithm)
+   (train on data of the category from all houses)
+
+-> create model that predicts boiler modulation
+   (it will give prediction using previous boiler modulation and the predictions for the other categories)
+   (find parameters for best model using genetic algorithm)
+   (train on data from all houses)
+(test on data from 20% of houses that had been randomly selected and were not used for training)
+(repeat a few times, selecting different 20% of houses for testing)
+(select model that performs best on most houses, without having too bad performance for the 'worst' house)
+
+
+---------- Αναλυτικά -------------
+
+-> προεπεξεργασία δεδομένων
+-> δημιουργία encoder decoder transformer
+-> έλεγχος σωστής λειτουργίας στα δεδομένα μίας κατηγορίας ενός σπιτιού
+-> δημιουργία μεθόδου παραγωγής βέλτιστου μοντέλου πρόβλεψης για κατηγορία δεδομένων με genetic algorithm
+-> έλεγχος σε μία κατηγορία ενός σπιτιού
+-> τα δεδομένα χωρίζονται:
+   + 20% σπιτιών (περίπου 5 σπίτια) θα κρατηθούν ως τελικός έλεγχος
+   + τα υπόλοιπα χρησιμοποιούνται για εκπαίδευση μοντέλων (σε αναλογία 80% - 20% για training)
+-> εκπαίδευση βέλτιστων μοντέλων για τις κατηγορίες
+   + το κάθε μοντέλο πρέπει να αποδίδει καλά για όλα τα σπίτια
+   ? εκπαίδευση ανά σπίτι ή όλα μαζί τα δεδομένα ανεξάρτητα από house_id ?
+-> δημιουργία μεθόδου για μοντέλο πρόβλεψης boiler modulation level που χρησιμοποιεί:
+   + τις προβλέψεις επόμενη ημέρας για το σπίτι για τις υπόλοιπες κατηγορίες
+   + τα δεδομένα προηγούμενης ημέρας του σπιτιού για boiler modulation level
+-> εύρεση μοντέλου με βέλτιστες παραμέτρους με genetic algorithm
+-> έλεγχος απόδοσης του μοντέλου στα σπίτια τελικού ελέγχου (το 20% που κρατήσαμε)
+   + εύρεση επίδοσης μοντέλου για κάθε σπίτι (αν και αναμένουμε καλή συμπεριφορά στο 80%)
+-> ξανα-χωρίζουμε τα σπίτια και επαναλαμβάνουμε την εκπαίδευση για εύρεση μοντέλου
+   ! επιλέξαμε τυχαία το 20%
+   ! επαναλαμβάνουμε για να δούμε τυχόν αλαγές στο τελικό βέλτιστο μοντέλο από "επιλογή" άλλων σπιτιών του 20%
+   -> σύγκριση των μοντέλων πρόβλεψης ανά κατηγορία
+      (πόσο καλά αποδίδουν στο τελικό 20% ? πόσο καλά αποδίδουν σε όλα τα σπίτια ?)
+   -> επιλογή βέλτιστου μοντέλου ανά κατηγορία
+      (να έχει γενικά καλή συμπεριφορά, χωρίς ακραία κακή συμπεριφορά στη χειρότερη περίπτωση)
+   -> εκπαίδευση μοντέλου για boiler mod level με χρήση των προβλέψεων από "βέλτιστα" μοντέλα κατηγορίας
+      ! εκπαίδευση πολλών τέτοιων μοντέλων με διαφορετικό κάθε φορά τυχαίο 20% τελικού ελέγχου
+   -> επιλογή βέλτιστου μοντέλου για boiler mod level
+      (να έχει γενικά καλή συμπεριφορά, χωρίς ακραία κακή συμπεριφορά στη χειρότερη περίπτωση)
+-> τελικά θα έχουμε ένα μοντέλο πρόβλεψης ανά κατηγορία και ένα τελικό για πρόβλεψη boiler mod level
+   ! αυτά τα μοντέλα είναι "βέλτιστα" για σπίτια με "συμπεριφορά" που αντιπροσοπεύει καλά το δείγμα που χρησιμοποιήσαμε
+
