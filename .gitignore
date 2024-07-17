@@ -6,3 +6,9 @@ boilers_env/
 
 # google drive uploads
 .tmp.driveupload/
+
+# model saved files
+code/models/
+
+# old saved code
+old_code_for_printed_results/
