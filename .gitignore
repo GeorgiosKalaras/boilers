@@ -12,3 +12,6 @@ code/models/
 
 # old saved code
 old_code_for_printed_results/
+
+# include transformer_error_metrics csv file
+!code/transformer_error_metrics.csv
