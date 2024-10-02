@@ -10,8 +10,14 @@ boilers_env/
 # model saved files
 code/models/
 
+# prediction saved files
+code/predictions/
+
 # old saved code
 old_code_for_printed_results/
 
 # include transformer_error_metrics csv file
 !code/transformer_error_metrics.csv
+
+# include lstm_error_metrics csv file
+!code/lstm_error_metrics.csv
